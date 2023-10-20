@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Element in Array</title>
+  </head>
+  <body>
+    <input type="text" placeholder="element to search" id="item-search" />
+    <button onclick="search()">Seacrh Element</button>
+
+    <script>
+      function search() {
+        let data = [20, 40, 60, 5, 10, 70, 80, 99];
+        let item = document.getElementById("item-search").value;
+        let index = undefined;
+        for (i = 0; i <= data.length - 1; i++) {
+          if (data[i] === parseInt(item)) {
+            index = i;
+            break;
+          }
+        }
+        console.log(index);
+      }
+    </script>
+  </body>
+</html>

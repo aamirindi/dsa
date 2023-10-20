@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queue</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      placeholder="enter element"
+      id="qEl"
+      style="padding: 5px; background-color: black; color: aliceblue" />
+    <button onclick="enqueue()" style="background-color: lightblue">
+      Add Element
+    </button>
+    <button onclick="dequeue()" style="background-color: crimson">
+      Remove Element
+    </button>
+    <br />
+    <br />
+    <button onclick="rear()" style="background-color: bisque">
+      Rear Element
+    </button>
+    <button onclick="front()" style="background-color: bisque">
+      Front Element
+    </button>
+    <button onclick="display()" style="background-color: lightseagreen">
+      Display Element
+    </button>
+
+    <script>
+      let data = [];
+      let currentSize = data.length;
+      let max = 5;
+      function enqueue() {
+        let qEl = document.getElementById("qEl").value;
+        if (currentSize >= max) {
+          alert("Queue is already full");
+        } else {
+          data[currentSize] = qEl;
+          currentSize++;
+          document.getElementById("qEl").value = "";
+        }
+        console.log(data);
+      }
+      function dequeue() {
+        if (!isEmpty()) {
+          for (i = 0; i < data.length - 1; i++) {
+            data[i] = data[i + 1];
+          }
+          currentSize--;
+          data.length = currentSize;
+          console.log(data);
+        } else {
+          alert("Queue is already empty");
+        }
+      }
+      function front() {
+        if (!isEmpty()) {
+          console.log(data[0]);
+        } else {
+          alert("Queue is already empty");
+        }
+      }
+      function rear() {
+        if (!isEmpty()) {
+          console.log(data[currentSize - 1]);
+        } else {
+          alert("Queue is already empty");
+        }
+      }
+      function isEmpty() {
+        if (currentSize <= 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      function display() {
+        console.log(data);
+      }
+    </script>
+  </body>
+</html>
